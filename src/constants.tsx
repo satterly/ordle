@@ -1,6 +1,6 @@
 export const keyboardLetters = [
-  ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
-  ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
+  ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'Å'],
+  ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Ö', 'Ä'],
   ['Z', 'X', 'C', 'V', 'B', 'N', 'M'],
 ]
 
@@ -10,6 +10,7 @@ export const letters = [
   'C',
   'D',
   'E',
+  'É',
   'F',
   'G',
   'H',
@@ -31,6 +32,9 @@ export const letters = [
   'X',
   'Y',
   'Z',
+  'Å',
+  'Ä',
+  'Ö'
 ]
 
 export const status = {

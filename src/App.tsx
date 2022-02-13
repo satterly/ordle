@@ -1,15 +1,16 @@
 import { letters, status } from './constants'
 import { useEffect, useState } from 'react'
+import './fonts/SwedenSans.woff';
 
 import { EndGameModal } from './components/EndGameModal'
 import { InfoModal } from './components/InfoModal'
 import { Keyboard } from './components/Keyboard'
 import { SettingsModal } from './components/SettingsModal'
-import answers from './data/answers'
+import answers from './data/answers.sv'
 import { useLocalStorage } from './hooks/useLocalStorage'
 import { ReactComponent as Info } from './data/Info.svg'
 import { ReactComponent as Settings } from './data/Settings.svg'
-const words = require('./data/words').default as { [key: string]: boolean }
+const words = require('./data/words.sv').default as { [key: string]: boolean }
 
 const state = {
   playing: 'playing',
@@ -25,7 +26,9 @@ export const difficulty = {
 
 const getRandomAnswer = () => {
   const randomIndex = Math.floor(Math.random() * answers.length)
-  return answers[randomIndex].toUpperCase()
+  let a = answers[randomIndex]
+  console.log(`Random Answer: ${a}`);
+  return a.toUpperCase();
 }
 
 type State = {
@@ -65,6 +68,7 @@ function App() {
   }
 
   const [answer, setAnswer] = useLocalStorage('stateAnswer', initialStates.answer())
+  const [translation, setTranslation] = useState("... ???");
   const [gameState, setGameState] = useLocalStorage('stateGameState', initialStates.gameState)
   const [board, setBoard] = useLocalStorage('stateBoard', initialStates.board)
   const [cellStatuses, setCellStatuses] = useLocalStorage(
@@ -121,11 +125,67 @@ function App() {
   )
 
   useEffect(() => {
+    const getNext = async () => {
+      let a, t, gt, data;
+      do {
+        a = getRandomAnswer();
+        const deepL = await fetch('https://api-free.deepl.com/v2/translate', {
+          method: 'POST',
+          body: new URLSearchParams({
+            auth_key: '11933fc0-3f9c-04d9-54ab-b7a6399ba7c0:fx',
+            text: a,
+            source_lang: 'SV',
+            target_lang: 'EN'
+          })
+        });
+        data = await deepL.json();
+        console.log(`GAMESTATE translation ${a} => ${JSON.stringify(data)}`);
+        t =data['translations'][0]['text'].toUpperCase();
+
+      //   const googleTranslate = await fetch("https://translation.googleapis.com/language/translate/v2", {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     "q": {answer},
+      //     "source": "sv",
+      //     "target": "en",
+      //     "format": "text"
+      //   })
+      // });
+      //   data = await googleTranslate.json();
+      //   console.log(`GAMESTATE translation ${a} => ${JSON.stringify(data)}`);
+      //   gt =data[0][0][0];
+        
+
+        const googleTranslate = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&sl=sv&tl=en&q=${a}`)
+        data = await googleTranslate.json();
+        console.log(`GAMESTATE translation ${a} => ${JSON.stringify(data)}`);
+        gt =data[0][0][0].toUpperCase();
+
+      } while (a === t)
+      console.log(`sticking with ${a}!!!`)
+      setAnswer(a);
+      if (t !== gt) {
+        setTranslation(`${t} or ${gt}`);
+      } else {
+        setTranslation(t);
+      }
+      
+    };
+    if (gameState === state.playing) {
+      getNext();
+    }
+  }, [gameState]);
+
+  useEffect(() => {
     if (gameState !== state.playing) {
       setTimeout(() => {
         openModal()
       }, 500)
     }
+    console.log('game state')
   }, [gameState])
 
   const getCellStyles = (rowNumber: number, colNumber: number, letter: string) => {
@@ -375,8 +435,8 @@ function App() {
           >
             <Settings />
           </button>
-          <h1 className="flex-1 text-center text-xl xxs:text-2xl sm:text-4xl tracking-wide font-bold font-righteous">
-            WORD MASTER
+          <h1 className="flex-1 text-center text-xl xxs:text-2xl sm:text-4xl tracking-wide font-bold font-sweden">
+            O-R-D-L-E
           </h1>
           <button
             type="button"
@@ -438,6 +498,7 @@ function App() {
           currentStreak={currentStreak}
           longestStreak={longestStreak}
           answer={answer}
+          translation={translation}
           playAgain={playAgain}
           avgGuessesPerGame={avgGuessesPerGame()}
         />
