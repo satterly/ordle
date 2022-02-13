@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/word-master/static/css/main.39d08712.css",
-    "main.js": "/word-master/static/js/main.585709f2.js",
-    "static/media/Cross.png": "/word-master/static/media/Cross.cbf77228e847522eff11.png",
-    "static/media/SwedenSans.ttf": "/word-master/static/media/SwedenSans.66e01008ae5a829d06ad.ttf",
-    "index.html": "/word-master/index.html",
-    "static/media/Github.svg": "/word-master/static/media/Github.6a9e1709e73c56888979048bb60e60a5.svg",
-    "static/media/Settings.svg": "/word-master/static/media/Settings.0808c435ed629b919ffa742a20d897f6.svg",
-    "static/media/Info.svg": "/word-master/static/media/Info.ee717ac430bb01bfbbd42aa3dbffe913.svg",
-    "static/media/Close.svg": "/word-master/static/media/Close.f34771d5d250820d8c5ec83c816bf8f5.svg",
-    "main.39d08712.css.map": "/word-master/static/css/main.39d08712.css.map",
-    "main.585709f2.js.map": "/word-master/static/js/main.585709f2.js.map"
+    "main.css": "/ordle/static/css/main.164c01a0.css",
+    "main.js": "/ordle/static/js/main.4c88c980.js",
+    "static/media/Cross.png": "/ordle/static/media/Cross.cbf77228e847522eff11.png",
+    "static/media/SwedenSans.ttf": "/ordle/static/media/SwedenSans.66e01008ae5a829d06ad.ttf",
+    "index.html": "/ordle/index.html",
+    "static/media/Github.svg": "/ordle/static/media/Github.6a9e1709e73c56888979048bb60e60a5.svg",
+    "static/media/Settings.svg": "/ordle/static/media/Settings.0808c435ed629b919ffa742a20d897f6.svg",
+    "static/media/Info.svg": "/ordle/static/media/Info.ee717ac430bb01bfbbd42aa3dbffe913.svg",
+    "static/media/Close.svg": "/ordle/static/media/Close.f34771d5d250820d8c5ec83c816bf8f5.svg",
+    "main.164c01a0.css.map": "/ordle/static/css/main.164c01a0.css.map",
+    "main.4c88c980.js.map": "/ordle/static/js/main.4c88c980.js.map"
   },
   "entrypoints": [
-    "static/css/main.39d08712.css",
-    "static/js/main.585709f2.js"
+    "static/css/main.164c01a0.css",
+    "static/js/main.4c88c980.js"
   ]
 }
