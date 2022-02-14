@@ -1,19 +1,21 @@
 {
   "files": {
-    "main.css": "/ordle/static/css/main.de9d2180.css",
+    "main.css": "/ordle/static/css/main.9bffb1fb.css",
     "main.js": "/ordle/static/js/main.92b4a39a.js",
     "static/media/Cross.png": "/ordle/static/media/Cross.cbf77228e847522eff11.png",
     "static/media/SwedenSans.ttf": "/ordle/static/media/SwedenSans.66e01008ae5a829d06ad.ttf",
+    "static/media/SwedenSans.woff": "/ordle/static/media/SwedenSans.cd80e0ea281b1876902f.woff",
+    "static/media/SwedenSans-Bold.woff": "/ordle/static/media/SwedenSans-Bold.087a051199a473cbd5d6.woff",
     "index.html": "/ordle/index.html",
     "static/media/Github.svg": "/ordle/static/media/Github.6a9e1709e73c56888979048bb60e60a5.svg",
     "static/media/Settings.svg": "/ordle/static/media/Settings.0808c435ed629b919ffa742a20d897f6.svg",
     "static/media/Info.svg": "/ordle/static/media/Info.ee717ac430bb01bfbbd42aa3dbffe913.svg",
     "static/media/Close.svg": "/ordle/static/media/Close.f34771d5d250820d8c5ec83c816bf8f5.svg",
-    "main.de9d2180.css.map": "/ordle/static/css/main.de9d2180.css.map",
+    "main.9bffb1fb.css.map": "/ordle/static/css/main.9bffb1fb.css.map",
     "main.92b4a39a.js.map": "/ordle/static/js/main.92b4a39a.js.map"
   },
   "entrypoints": [
-    "static/css/main.de9d2180.css",
+    "static/css/main.9bffb1fb.css",
     "static/js/main.92b4a39a.js"
   ]
 }
