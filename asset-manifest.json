@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ordle/static/css/main.9bffb1fb.css",
-    "main.js": "/ordle/static/js/main.1a96ed2d.js",
+    "main.js": "/ordle/static/js/main.b42bc18e.js",
     "static/media/Cross.png": "/ordle/static/media/Cross.cbf77228e847522eff11.png",
     "static/media/SwedenSans.ttf": "/ordle/static/media/SwedenSans.66e01008ae5a829d06ad.ttf",
     "static/media/SwedenSans.woff": "/ordle/static/media/SwedenSans.cd80e0ea281b1876902f.woff",
@@ -12,10 +12,10 @@
     "static/media/Info.svg": "/ordle/static/media/Info.ee717ac430bb01bfbbd42aa3dbffe913.svg",
     "static/media/Close.svg": "/ordle/static/media/Close.f34771d5d250820d8c5ec83c816bf8f5.svg",
     "main.9bffb1fb.css.map": "/ordle/static/css/main.9bffb1fb.css.map",
-    "main.1a96ed2d.js.map": "/ordle/static/js/main.1a96ed2d.js.map"
+    "main.b42bc18e.js.map": "/ordle/static/js/main.b42bc18e.js.map"
   },
   "entrypoints": [
     "static/css/main.9bffb1fb.css",
-    "static/js/main.1a96ed2d.js"
+    "static/js/main.b42bc18e.js"
   ]
 }
