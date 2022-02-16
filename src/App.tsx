@@ -28,7 +28,7 @@ const getRandomAnswer = () => {
   const randomIndex = Math.floor(Math.random() * answers.length)
   let a = answers[randomIndex]
   console.log(`Random Answer: ${a}`);
-  return a.toUpperCase();
+  return a;
 }
 
 type State = {
@@ -44,7 +44,7 @@ type State = {
 
 function App() {
   const initialStates: State = {
-    answer: () => getRandomAnswer(),
+    answer: () => { return ''},
     gameState: state.playing,
     board: [
       ['', '', '', '', ''],
@@ -125,7 +125,7 @@ function App() {
   )
 
   useEffect(() => {
-    const getNext = async () => {
+    const getNextAnswer = async () => {
       let a, t, gt, data;
       do {
         a = getRandomAnswer();
@@ -139,8 +139,8 @@ function App() {
           })
         });
         data = await deepL.json();
-        console.log(`GAMESTATE translation ${a} => ${JSON.stringify(data)}`);
-        t =data['translations'][0]['text'].toUpperCase();
+        // console.log(`GAMESTATE translation ${a} => ${JSON.stringify(data)}`);
+        t = data['translations'][0]['text'];
 
       //   const googleTranslate = await fetch("https://translation.googleapis.com/language/translate/v2", {
       //   method: 'POST',
@@ -157,26 +157,26 @@ function App() {
       //   data = await googleTranslate.json();
       //   console.log(`GAMESTATE translation ${a} => ${JSON.stringify(data)}`);
       //   gt =data[0][0][0];
-        
 
-        const googleTranslate = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&sl=sv&tl=en&q=${a}`)
-        data = await googleTranslate.json();
-        console.log(`GAMESTATE translation ${a} => ${JSON.stringify(data)}`);
-        gt =data[0][0][0].toUpperCase();
+        // const googleTranslate = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&dt=t&sl=sv&tl=en&q=${a}`)
+        // data = await googleTranslate.json();
+        // console.log(`GAMESTATE translation ${a} => ${JSON.stringify(data)}`);
+        // gt =data[0][0][0].toUpperCase();
 
       } while (a === t)
       console.log(`sticking with ${a}!!!`)
-      setAnswer(a);
-      if (t !== gt) {
-        setTranslation(`${t} or ${gt}`);
-      } else {
-        setTranslation(t);
-      }
-      
+      setAnswer(a.toUpperCase());
+      // if (t !== gt) {
+      //   setTranslation(`${t.toUpperCase()} or ${gt.toUpperCase()}`);
+      // } else {
+      //   setTranslation(t.toUpperCase());
+      // }
+      setTranslation(t.toUpperCase());
     };
     if (gameState === state.playing) {
-      getNext();
+      getNextAnswer();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameState]);
 
   useEffect(() => {

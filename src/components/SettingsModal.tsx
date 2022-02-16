@@ -33,6 +33,7 @@ export const SettingsModal = ({
       onRequestClose={handleClose}
       style={styles}
       contentLabel="Settings Modal"
+      ariaHideApp={false}
     >
       <div className={`h-full ${darkMode ? 'dark' : ''}`}>
         <div

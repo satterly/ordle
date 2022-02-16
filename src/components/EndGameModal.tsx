@@ -1,5 +1,4 @@
 import { ReactComponent as Close } from '../data/Close.svg'
-import { useEffect, useState } from 'react'
 
 import Modal from 'react-modal'
 import Ok from '../data/pippi.png'
@@ -65,6 +64,7 @@ export const EndGameModal = ({
       onRequestClose={handleClose}
       style={styles}
       contentLabel="Game End Modal"
+      ariaHideApp={false}
     >
       <div className={darkMode ? 'dark' : ''}>
         <div className="h-full flex flex-col items-center justify-center max-w-[300px] mx-auto text-primary dark:text-primary-dark">
